@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Buscar tickets</h1>
+<form method="get">
+  <label>Título <input name="q" value="{{ query }}"></label>
+  <button>Buscar</button>
+</form>
+{% for ticket in tickets %}
+  <div class="card"><a href="{{ url_for('ticket', ticket_id=ticket.id) }}">#{{ ticket.id }} {{ ticket.title }}</a></div>
+{% else %}<p>Sin resultados.</p>{% endfor %}
+{% endblock %}

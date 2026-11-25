@@ -1,0 +1,7 @@
+.git
+__pycache__
+*.pyc
+*.db
+.venv
+README.md
+compose.yaml

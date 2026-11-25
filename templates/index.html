@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Mis tickets</h1>
+{% for ticket in tickets %}
+  <div class="card"><a href="{{ url_for('ticket', ticket_id=ticket.id) }}">#{{ ticket.id }} {{ ticket.title }}</a></div>
+{% else %}<p>No hay tickets.</p>{% endfor %}
+{% endblock %}

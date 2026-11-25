@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>#{{ ticket.id }} {{ ticket.title }}</h1>
+<p>{{ ticket.body }}</p>
+<h2>Comentarios</h2>
+{% for comment in comments %}<div class="card">{{ comment.body | safe }}</div>{% else %}<p>Aún no hay comentarios.</p>{% endfor %}
+<form method="post" action="{{ url_for('add_comment', ticket_id=ticket.id) }}">
+  <label>Nuevo comentario <textarea name="body" required></textarea></label>
+  <p><button>Agregar comentario</button></p>
+</form>
+{% endblock %}

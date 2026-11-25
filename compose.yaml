@@ -1,0 +1,15 @@
+name: securedev-estudiante
+
+services:
+  app:
+    build: .
+    environment:
+      DATABASE_PATH: /data/securedev.db
+      SECRET_KEY: clave-insegura-solo-laboratorio
+    volumes:
+      - app_data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
+
+volumes:
+  app_data:
